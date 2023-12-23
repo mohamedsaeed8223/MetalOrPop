@@ -14,4 +14,6 @@ def predict(img):
     pred,pred_idx,probs = learn.predict(img)
     return dict(zip(categories, map(float,probs)))
 
-gr.Interface(fn=predict, inputs=gr.Image(height=512,width=512), outputs=gr.Label(num_top_classes=2)).launch(share=True)    
+examples = ['metalkinggizz.png', 'popkinggizz.jpeg', 'TI.png','TI2.jpeg']
+
+gr.Interface(fn=predict, inputs=gr.Image(height=512,width=512), outputs=gr.Label(num_top_classes=2),examples=examples).launch(share=True)   
