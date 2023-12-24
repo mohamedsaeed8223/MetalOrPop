@@ -7,7 +7,7 @@ def is_metal_album(x): return x[0].isupper()
 
 learn = load_learner('model.pkl')
 
-categories = ('American Pop Album', 'Metal Album')
+categories = ('Pop Album', 'Metal Album')
 
 labels = learn.dls.vocab
 
