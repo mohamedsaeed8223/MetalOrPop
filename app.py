@@ -1,6 +1,8 @@
 from fastai.vision.all import *
 import gradio as gr
 
+description = 'this is a model that predicts whether an album is metal or pop based on its cover art'
+
 def is_metal_album(x): return x[0].isupper()
 
 learn = load_learner('model.pkl')
@@ -16,4 +18,4 @@ def predict(img):
 
 examples = ['metalkinggizz.png', 'popkinggizz.jpeg', 'TI.png','TI2.jpeg']
 
-gr.Interface(fn=predict, inputs=gr.Image(height=512,width=512), outputs=gr.Label(num_top_classes=2),examples=examples).launch(share=True)   
+gr.Interface(fn=predict, inputs=gr.Image(height=512,width=512), outputs=gr.Label(num_top_classes=2), examples=examples, description=description).launch(share=True)   
